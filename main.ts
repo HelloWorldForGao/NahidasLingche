@@ -134,7 +134,8 @@ maxlive = 4
 info.setLife(4)
 sudu = 10
 let gengxingshijian = 20000 / sudu
-info.startCountdown(60)
+info.startCountdown(120)
+music.play(music.createSong(assets.song`bgm`), music.PlaybackMode.LoopingInBackground)
 game.onUpdateInterval(2000, function () {
     if (sudu == 10) {
         tanshe()
