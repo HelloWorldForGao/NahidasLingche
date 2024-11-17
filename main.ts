@@ -17,6 +17,9 @@ function xinchedao (jihao: number) {
         mySprite.setPosition(100, 80)
     }
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    info.changeCountdownBy(5)
+})
 function tanshe () {
     suijishu = randint(1, 5)
     if (suijishu == 1) {
@@ -40,6 +43,9 @@ info.onCountdownEnd(function () {
     game.setGameOverEffect(true, effects.confetti)
     game.setGameOverPlayable(true, music.melodyPlayable(music.powerUp), false)
     game.gameOver(true)
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    info.changeCountdownBy(10)
 })
 function youyi () {
     if (chedao != 3) {
@@ -135,7 +141,6 @@ info.setLife(4)
 sudu = 10
 let gengxingshijian = 20000 / sudu
 info.startCountdown(120)
-music.play(music.createSong(assets.song`bgm`), music.PlaybackMode.LoopingInBackground)
 game.onUpdateInterval(2000, function () {
     if (sudu == 10) {
         tanshe()
